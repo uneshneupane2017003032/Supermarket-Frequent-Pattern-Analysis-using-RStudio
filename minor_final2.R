@@ -15,6 +15,8 @@ rules <- apriori(Groceries, parameter = list(supp = 0.001, conf = 0.8))
 options(digits=2)
 inspect(rules[1:5])
 
+Capture 1.PNG
+
 # Shows a brief summary of the data
 summary(rules)
 
