@@ -21,12 +21,6 @@ rules<-sort(rules, by="confidence", decreasing=TRUE)
 
 rules <- apriori(Groceries, parameter = list(supp = 0.001, conf = 0.8,maxlen=3))
 
-subset.matrix <- is.subset(rules, rules)
-subset.matrix[lower.tri(subset.matrix, diag=T)] <- NA
-redundant <- colSums(subset.matrix, na.rm=T) >= 1
-rules.pruned <- rules[!redundant]
-rules<-rules.pruned
-
 rules<-apriori(data=Groceries, parameter=list(supp=0.001,conf = 0.08), 
                appearance = list(default="lhs",rhs="whole milk"),
                control = list(verbose=F))
